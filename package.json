@@ -1,0 +1,19 @@
+{
+  "name": "hotel-imperial",
+  "version": "1.0.0",
+  "description": "Website of the \"Hotel Imperial\" where you can find information about the hotel and make reservations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/C354RCL/HotelImperial.git"
+  },
+  "author": "Cesar Cornejo López",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C354RCL/HotelImperial/issues"
+  },
+  "homepage": "https://github.com/C354RCL/HotelImperial#readme"
+}
