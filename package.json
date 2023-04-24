@@ -4,7 +4,8 @@
   "description": "Website of the \"Hotel Imperial\" where you can find information about the hotel and make reservations",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/C354RCL/HotelImperial/issues"
   },
-  "homepage": "https://github.com/C354RCL/HotelImperial#readme"
+  "homepage": "https://github.com/C354RCL/HotelImperial#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22",
+    "util": "^0.12.5"
+  }
 }
