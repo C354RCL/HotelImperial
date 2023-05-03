@@ -4,6 +4,7 @@ const app = express();
 
 //ruta
 const reservar = require('./routes/reservacion');
+const registros = require('./routes/registros');
 
 //middleware
 const index = require('./routes/inicio');
@@ -18,11 +19,11 @@ app.use(express.urlencoded({extended : true}));
 app.get('/', index);
 
 app.use('/reservar', reservar);
-
+app.use('/registros', registros);
 app.use(express.static('public'));
 app.use(notFound);
 
 app.listen(process.env.PORT || 3000, () => {
-    console.log('SErver is runing in port 3000');
+    console.log('Server is runing in port 3000');
 })
 

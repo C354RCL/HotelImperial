@@ -43,11 +43,6 @@ document.addEventListener('DOMContentLoaded', function(){
     inputHabMat.addEventListener('input', validarNumeroHab);
     inputHabKing.addEventListener('input', validarNumeroHab);
     inputDobles.addEventListener('input', validarNumeroHab);
-    // btnBorrar.addEventListener('click', function(e) {
-    //     e.preventDefault();
-    //     //reiniciamos el objeto formulario
-    //     resetFormulario(e);
-    // });
     btnEnviar.addEventListener('click', enviarFormlario);
     
     //Funcion para validar campos de texto
@@ -162,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     function mostrarCantidadPagar(numeroHabMat, numeroHabKing, numeroHabDobles){
         let total = 0;
-        total = (numeroHabMat * 300) + (numeroHabKing * 400) + (numeroHabDobles * 550);
+        total = (numeroHabMat * 400) + (numeroHabKing * 500) + (numeroHabDobles * 650);
         return total;
     }
     
@@ -257,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function(){
             formLleno.habDoble = '';
             formLleno.totalPagar = ''
             alertaEnviado('Formulario enviado correctamente', formulario);
-            // formulario.reset();
+            formulario.reset();
         }, 3000);
     }
     
