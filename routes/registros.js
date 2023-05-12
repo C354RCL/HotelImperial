@@ -21,7 +21,4 @@ registros.get('/', async(req, res) => {
     }
 });
 
-
-  
-
 module.exports = registros;

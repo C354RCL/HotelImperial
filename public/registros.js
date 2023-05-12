@@ -9,6 +9,7 @@ axios
   });
 
 const registros = [];
+
 function obtenerDatos(data) {
   data.forEach((element, i) => {
     const registro = {
@@ -68,4 +69,51 @@ function crearHileras(obj) {
     tblBody.appendChild(hilera);
   });
 }
+
+function eliminarHileras(){
+  const hileras = document.querySelectorAll('.registros');
+  console.log(hileras);
+  hileras.forEach((e, i) => {
+    hileras[i].remove();
+  }); 
+}
+
+// function mensajeError(mensaje, referencia){
+//   const alerta = referencia.querySelector('#msjError');
+//   if(alerta){
+//     alerta.remove()
+//   }
+
+//   const divError = document.createElement('DIV')
+//   const error = document.createElement('P');
+//   error.textContent = mensaje;
+//   divError.id = 'msjError';
+
+//   divError.appendChild(error);
+//   referencia.appendChild(divError);
+// }
+
+const inputBucar = document.querySelector('#busqueda');
+const btnBuscar = document.querySelector('#buscar');
+// const container = document.querySelector('#container');
+// const Derror = document.querySelector('#msjError');
+
+btnBuscar.addEventListener('click', () => {
+  let nuevoArreglo = [];
+  eliminarHileras();
+  registros.forEach((e, i) => {
+    let existe = registros[i].nombre.includes(inputBucar.value.toLowerCase());
+    if(existe){
+      nuevoArreglo.push(registros[i])
+      crearHileras(nuevoArreglo);
+      return
+    }
+
+    // mensajeError('No se encontraron registros', container);
+    // } else {
+    //   crearHileras(nuevoArreglo);
+    //   mensajeError('No se encontraron registros', tabla);
+    // }
+  });
+});
 
