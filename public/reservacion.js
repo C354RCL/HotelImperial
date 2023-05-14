@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function(){
             return;
         }
     
-        if(e.target.id == 'fechaIngreso' && fechaIngreso < fechaActual){
+        if(e.target.id == 'fechaIngreso' && fechaIngreso < (fechaActual-2)){
             mostrarError('La fecha de ingreso no puede ser menor al dia actual', divFechas.parentElement);
             formLleno[e.target.name] = '';
             comprobarFormulario();

@@ -1,3 +1,4 @@
+//Se hace la peticion a la API para obtener los registros
 axios
   .get("http://localhost:3000/registros")
   .then((response) => {
@@ -8,9 +9,12 @@ axios
     console.error(error);
   });
 
+//Se crea la constante donde se guardaran los registros
 const registros = [];
 
+//Funcion que obtiene los datos y los almacena
 function obtenerDatos(data) {
+  //Se hace un ciclo foreach para recorrer lois datos que se obtienen
   data.forEach((element, i) => {
     const registro = {
       ID: element.ID,
@@ -24,11 +28,13 @@ function obtenerDatos(data) {
       noHabDob: element.noHabDob,
       totalPagar: element.totalPagar,
     };
+    //Se agrega los datos obtenidos al objeto
     registros.push(registro);
   });
   return registros;
 }
 
+//Funcion que recorre los datos del objeto y crea las hileras
 function crearHileras(obj) {
   const tblBody = document.querySelector("#body-table");
   
@@ -70,6 +76,7 @@ function crearHileras(obj) {
   });
 }
 
+//Funcion que elimina las hileras creadas
 function eliminarHileras(){
   const hileras = document.querySelectorAll('.registros');
   console.log(hileras);
@@ -78,42 +85,63 @@ function eliminarHileras(){
   }); 
 }
 
-// function mensajeError(mensaje, referencia){
-//   const alerta = referencia.querySelector('#msjError');
-//   if(alerta){
-//     alerta.remove()
-//   }
-
-//   const divError = document.createElement('DIV')
-//   const error = document.createElement('P');
-//   error.textContent = mensaje;
-//   divError.id = 'msjError';
-
-//   divError.appendChild(error);
-//   referencia.appendChild(divError);
-// }
-
-const inputBucar = document.querySelector('#busqueda');
+//Se obtienen los inputs para leer los datos que se ingresan
+const inputBucarNombre = document.querySelector('#busquedaNombre');
+const inputBuscarCorreo = document.querySelector('#busquedaCorreo');
+const inputBuscarTelefono = document.querySelector('#busquedaTelefono');
+const inputBuscarFecha = document.querySelector('#busquedaFecha');
 const btnBuscar = document.querySelector('#buscar');
-// const container = document.querySelector('#container');
-// const Derror = document.querySelector('#msjError');
 
+//Se le agrega un evento al botn BUSCAR
 btnBuscar.addEventListener('click', () => {
   let nuevoArreglo = [];
   eliminarHileras();
-  registros.forEach((e, i) => {
-    let existe = registros[i].nombre.includes(inputBucar.value.toLowerCase());
-    if(existe){
-      nuevoArreglo.push(registros[i])
-      crearHileras(nuevoArreglo);
-      return
-    }
 
-    // mensajeError('No se encontraron registros', container);
-    // } else {
-    //   crearHileras(nuevoArreglo);
-    //   mensajeError('No se encontraron registros', tabla);
-    // }
-  });
+  //Busqueda por nombre
+  if(inputBucarNombre.value !== '') {
+    registros.forEach((e, i) => {
+      let existe = registros[i].nombre.includes(inputBucarNombre.value.toLowerCase());
+      if(existe){
+        nuevoArreglo.push(registros[i])
+        crearHileras(nuevoArreglo);
+        return
+      }
+    });
+  }
+
+  //Busqueda por correo 
+  if(inputBuscarCorreo.value !== '') {
+    registros.forEach((e, i) => {
+      let existe = registros[i].correo.includes(inputBuscarCorreo.value.toLowerCase());
+      if(existe) {
+        nuevoArreglo.push(registros[i]);
+        crearHileras(nuevoArreglo);
+        return
+      }
+    });
+  }
+
+  if(inputBuscarTelefono.value !== '') {
+    registros.forEach((e, i) => {
+      let existe = registros[i].telefono.includes(inputBuscarTelefono.value);
+      if(existe) {
+        nuevoArreglo.push(registros[i]);
+        crearHileras(nuevoArreglo);
+        return
+      }
+    });
+  }
+
+  if(inputBuscarFecha.value !== '') {
+    registros.forEach((e, i) => {
+      let existe = registros[i].fecIngreso.includes(inputBuscarFecha.value);
+      if(existe) {
+        nuevoArreglo.push(registros[i]);
+        crearHileras(nuevoArreglo);
+        return
+      }
+    });
+  }
+  
 });
 
