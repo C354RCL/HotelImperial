@@ -81,11 +81,8 @@ document.addEventListener('DOMContentLoaded', function(){
     function validarFecha(e){
     
         const fechaActual = new Date();
-        console.log(fechaActual);
         const fechaIngreso = new Date(inputIngreso.value);
-        console.log(fechaIngreso);
         const fechaSalida = new Date(inputSalida.value);
-        console.log(fechaSalida);
     
         if(e.target.value.trim() == ''){
             mostrarError('El campo es obligatorio', divFechas.parentElement);
@@ -157,7 +154,15 @@ document.addEventListener('DOMContentLoaded', function(){
     
     function mostrarCantidadPagar(numeroHabMat, numeroHabKing, numeroHabDobles){
         let total = 0;
-        total = (numeroHabMat * 400) + (numeroHabKing * 500) + (numeroHabDobles * 650);
+        const fecha1 = new Date(document.getElementById("fechaIngreso").value);
+        const fecha2 = new Date(document.getElementById("fechaSalida").value);
+
+        const diferenciaMilisegundos = fecha2 - fecha1;
+
+        // Obtener la diferencia en días
+        const diferenciaDias = Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24));
+
+        total = ((numeroHabMat * 400) + (numeroHabKing * 500) + (numeroHabDobles * 650)) * diferenciaDias;
         return total;
     }
     
@@ -202,7 +207,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
     //Funcion para comprobar que todo el formulario este completo
     function comprobarFormulario(){
-        console.log(formLleno);
         if(!Object.values(formLleno).includes('')){
             btnEnviar.style.removeProperty('opacity');
             btnEnviar.disabled = false;
