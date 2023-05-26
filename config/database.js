@@ -11,8 +11,8 @@ const pool = mysql.createPool({
 
     host : 'aws.connect.psdb.cloud',
     database : 'hotelimperial',
-    user : 'j9s8zmkt6fxi0ny1jbf4',
-    password : 'pscale_pw_5O6J0TXJ046AUySah5aumnEL09wZPhk13FgtMg8LKT3',
+    user : 'wknbofudo1bxjt0ao5f6',
+    password : 'pscale_pw_vqT7Vt3HkhtVDTH5B0qWBfCnw2UJVmB472aynDg51Zh',
     ssl : true
 });
 
