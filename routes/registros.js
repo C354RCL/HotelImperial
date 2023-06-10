@@ -1,6 +1,6 @@
 const express = require('express');
 const registros = express.Router();
-const db = require('../config/database');
+const db = require('../config/databaseR');
 const path = require('path');
 const opn = require('opn');
 

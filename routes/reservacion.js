@@ -1,6 +1,6 @@
 const express = require('express');
 const reservar = express.Router();
-const db = require('../config/database');
+const db = require('../config/databaseW');
 const path = require('path');
 
 reservar.post('/', async(req, res, next) => {

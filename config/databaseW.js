@@ -4,15 +4,16 @@ const util = require('util');
 const pool = mysql.createPool({
     // connectionLimit : 10,
     // host: 'localhost',
-    // port: '3307',
+    // // port: '3307',
     // user : 'root',
     // password : '',
     // database : 'hotelimperial'
 
+    //Conexion a base de datos en planet scale
     host : 'aws.connect.psdb.cloud',
     database : 'hotelimperial',
-    user : 'wknbofudo1bxjt0ao5f6',
-    password : 'pscale_pw_vqT7Vt3HkhtVDTH5B0qWBfCnw2UJVmB472aynDg51Zh',
+    user : '32lvhcwnlu0sdr0jcyx4',
+    password : 'pscale_pw_xebrrXPSh28MNwgc2If65VAidJwTSQKQh6LaTfncfNj',
     ssl : true
 });
 
