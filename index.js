@@ -16,10 +16,10 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
-app.get('/', index);
+app.get('https://bucolic-sawine-99a070.netlify.app/', index);
 
-app.use('/reservar', reservar);
-app.use('/registros', registros);
+app.use('https://bucolic-sawine-99a070.netlify.app/reservar', reservar);
+app.use('https://bucolic-sawine-99a070.netlify.app/registros', registros);
 app.use(express.static('public'));
 app.use(notFound);
 
